@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import bCrypt from "bcrypt"
 
 const userSchema = new mongoose.Schema({
     email:{
@@ -35,5 +36,10 @@ const userSchema = new mongoose.Schema({
         ref:"Account"
     }
 },{timestamps:{createdAt:"created_at"}})
+
+userSchema.pre("save", async function(next){
+    this.password = await bCrypt.hash(this.password,12);
+    next();
+})
 
 export const User = mongoose.model("User",userSchema);
