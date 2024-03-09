@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from "mongoose"
 import cors from "cors"
 import { configureEx } from "./config/expressConfig.js";
+import { router } from "./controllers/userController.js";
 
 
 const app = express();
@@ -13,6 +14,8 @@ app.use (cors({
     origin:"http://localhost:4200",
     credentials:true
 }))
+
+app.use(router)
 
 
 async function main(){

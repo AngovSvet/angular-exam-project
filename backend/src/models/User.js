@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         minLength:[8,"Longer password is required"],
         validate:{
             validator: function (el){
-                return /[a-zA-Z0-9]+/g.test(v);
+                return /[a-zA-Z0-9]+/g.test(el);
             },
             message:(props)=>`${props.name} should contain only latin letters and numbers!`
         }
