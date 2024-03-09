@@ -2,7 +2,7 @@ import express from "express"
 import mongoose from "mongoose"
 import cors from "cors"
 import { configureEx } from "./config/expressConfig.js";
-import { router } from "./controllers/userController.js";
+import { router } from "./routes.js";
 
 
 const app = express();

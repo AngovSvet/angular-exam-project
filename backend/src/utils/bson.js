@@ -1,0 +1,1 @@
+export const bsonToJson = (data) => { return JSON.parse(JSON.stringify(data)) };
