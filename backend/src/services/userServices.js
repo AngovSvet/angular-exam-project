@@ -40,7 +40,7 @@ export const login = async (email,password) =>{
 
     user = bsonToJson(user)
     user = removePassword(user);
-    
+
     const token = await getToken(email,user._id)
 
     return {token, user}

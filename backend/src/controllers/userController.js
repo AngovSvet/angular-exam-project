@@ -1,15 +1,16 @@
 import express from "express";
 import { register, login} from "../services/userServices.js";
 import { errorHandler } from "../utils/error.js";
+import { BlackList } from "../models/BlackList.js";
 
 const router = express.Router();
 
-router.get("/user/register", async (req, res) => {
-//   const { email, password, username, rePass } = req.body
-    const email ="ael@abv.bg"
-    const password = "123456789"
-    const username = "me"
-    const rePass = "123456789"
+router.post("/user/register", async (req, res) => {
+  const { email, password, username, rePass } = req.body
+    // const email ="ael@abv.bg"
+    // const password = "123456789"
+    // const username = "me"
+    // const rePass = "123456789"
 try {
     const {token,user} = await register(email, password, username, rePass);
   res.cookie("auth",token);
@@ -21,10 +22,10 @@ try {
 }
 });
 
-router.get("/user/login",async (req,res)=>{
-    // const {email,password} = req.body
-    const email ="paeo@abv.b"
-    const password = "123456789"
+router.post("/user/login",async (req,res)=>{
+    const {email,password} = req.body
+    // const email ="paeo@abv.bg"
+    // const password = "123456789"
     try {
         const {token,user} = await login(email,password);
         res.cookie("auth",token)
@@ -33,6 +34,17 @@ router.get("/user/login",async (req,res)=>{
         const message = errorHandler(error);
         res.status(400).json({error:message}) 
         
+    }
+})
+
+router.get("/user/logout", async (req,res)=>{
+    const token = req.cookies["auth"];
+    try {
+        await BlackList.create({token:token})
+        res.clearCookie("auth").status(200).send("Logged out")
+    } catch (error) {
+        const message = errorHandler(error);
+        res.status(400).json({error:message}) 
     }
 })
 
