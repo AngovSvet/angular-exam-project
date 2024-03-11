@@ -31,10 +31,10 @@ const userSchema = new mongoose.Schema({
         }
     },
 
-    account:{
+    accounts:[{
         type:mongoose.Types.ObjectId,
         ref:"Account"
-    }
+    }]
 },{timestamps:{createdAt:"created_at"}})
 
 userSchema.pre("save", async function(next){

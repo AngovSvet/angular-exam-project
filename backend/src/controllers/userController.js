@@ -5,15 +5,15 @@ import { BlackList } from "../models/BlackList.js";
 
 const router = express.Router();
 
-router.post("/user/register", async (req, res) => {
-  const { email, password, username, rePass } = req.body
-    // const email ="ael@abv.bg"
-    // const password = "123456789"
-    // const username = "me"
-    // const rePass = "123456789"
+router.get("/user/register", async (req, res) => {
+//   const { email, password, username, rePass } = req.body
+    const email ="al@abv.bg"
+    const password = "123456789"
+    const username = "me"
+    const rePass = "123456789"
 try {
     const {token,user} = await register(email, password, username, rePass);
-  res.cookie("auth",token);
+  res.cookie("auth",token,{httpOnly:true});
 
   res.status(200).json(user)
 } catch (error) {
@@ -28,7 +28,7 @@ router.post("/user/login",async (req,res)=>{
     // const password = "123456789"
     try {
         const {token,user} = await login(email,password);
-        res.cookie("auth",token)
+        res.cookie("auth",token,{httpOnly:true})
         res.status(200).json(user)
     } catch (error) {
         const message = errorHandler(error);
