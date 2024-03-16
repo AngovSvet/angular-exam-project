@@ -3,11 +3,16 @@ import { User } from "../models/User.js";
 
 
 export const createAcc = async (data) =>{
-    console.log(data);
     const account = await Account.create(data);
 
-    const user = await User.findByIdAndUpdate({_id:data.owner},{$push: {accounts:account._id}},{new:true});
-    console.log(user);
+    await User.findByIdAndUpdate({_id:data.owner},{$push: {accounts:account._id}})
 
     return account
+}
+
+
+export const getAccounts = async (userId)=>{
+    const accounts = await Account.find({owner:userId})
+
+    return accounts;
 }

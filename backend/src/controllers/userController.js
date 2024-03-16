@@ -5,12 +5,12 @@ import { BlackList } from "../models/BlackList.js";
 
 const router = express.Router();
 
-router.get("/user/register", async (req, res) => {
-//   const { email, password, username, rePass } = req.body
-    const email ="al@abv.bg"
-    const password = "123456789"
-    const username = "me"
-    const rePass = "123456789"
+router.post("/user/register", async (req, res) => {
+  const { email, password, username, rePass } = req.body
+    // const email ="al@abv.bg"
+    // const password = "123456789"
+    // const username = "me"
+    // const rePass = "123456789"
 try {
     const {token,user} = await register(email, password, username, rePass);
   res.cookie("auth",token,{httpOnly:true});

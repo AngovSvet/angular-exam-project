@@ -7,7 +7,7 @@ export function auth(){
         const token = req.cookies["auth"] || "";
 
         if(!token){
-            res.json("Token needed")
+            return res.json("Token needed")
         }
 
         const check = await BlackList.findOne({token});
