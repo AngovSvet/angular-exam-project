@@ -16,3 +16,9 @@ export const getAccounts = async (userId)=>{
 
     return accounts;
 }
+
+export const changeStatus = async (id, status)=>{
+    const account = await Account.findByIdAndUpdate(id,{status}, {new:true});
+
+    return account;
+}

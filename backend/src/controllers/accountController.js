@@ -1,7 +1,8 @@
 import express from "express";
 import { auth } from "../utils/auth.js";
-import { createAcc, getAccounts } from "../services/accountServices.js";
+import { changeStatus, createAcc, getAccounts } from "../services/accountServices.js";
 import { errorHandler } from "../utils/error.js";
+import { owns } from "../utils/owns.js";
 
 
 const router = express.Router();
@@ -36,6 +37,21 @@ router.get("/get/accounts", auth(), async (req, res)=>{
         const message = errorHandler(error);
         res.json({error:message})
     }
+})
+
+router.post("/account/edit", auth(), owns, async (req, res)=>{
+    const status = req.body
+    // const status = "inactive"
+    const id = req.params.id
+    try {
+        const account = await changeStatus(id,status);
+        res.json(account)
+    } catch (error) {
+        const message = errorHandler(error);
+        res.json({error:message})
+    }
+
+
 })
 
 export {router}
