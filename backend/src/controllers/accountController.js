@@ -1,6 +1,6 @@
 import express from "express";
 import { auth } from "../utils/auth.js";
-import { changeStatus, createAcc, getAccounts } from "../services/accountServices.js";
+import { changeStatus, createAcc, deleteAcc, getAccounts } from "../services/accountServices.js";
 import { errorHandler } from "../utils/error.js";
 import { owns } from "../utils/owns.js";
 
@@ -39,10 +39,10 @@ router.get("/get/accounts", auth(), async (req, res)=>{
     }
 })
 
-router.post("/account/edit", auth(), owns, async (req, res)=>{
+router.post("/account/:accountId", auth(), owns, async (req, res)=>{
     const status = req.body
     // const status = "inactive"
-    const id = req.params.id
+    const id = req.params.accountId
     try {
         const account = await changeStatus(id,status);
         res.json(account)
@@ -52,6 +52,21 @@ router.post("/account/edit", auth(), owns, async (req, res)=>{
     }
 
 
+})
+
+router.post("/account/:accountId", auth(), owns, async (req,res)=>{
+    const accountId = req.params.accountId;
+    // const accountId = '65f5f5bc327773d9cbdd5023'
+
+    const userId = req.user.id;
+
+    try {
+        const user = await deleteAcc(accountId,userId);
+        res.json(user);
+    } catch (error) {
+        const message = errorHandler(error);
+        res.json({error:message})
+    }
 })
 
 export {router}

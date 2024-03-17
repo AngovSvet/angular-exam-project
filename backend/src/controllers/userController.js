@@ -24,7 +24,7 @@ try {
 
 router.post("/user/login",async (req,res)=>{
     const {email,password} = req.body
-    // const email ="paeo@abv.bg"
+    // const email ="al@abv.bg"
     // const password = "123456789"
     try {
         const {token,user} = await login(email,password);

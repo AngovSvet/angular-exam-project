@@ -22,3 +22,10 @@ export const changeStatus = async (id, status)=>{
 
     return account;
 }
+
+export const deleteAcc = async (id, userId) =>{
+    await Account.findByIdAndDelete(id);
+    const user = await User.findByIdAndUpdate(userId,{$pull:{accounts:id}}, {new:true})
+
+    return user;
+}
