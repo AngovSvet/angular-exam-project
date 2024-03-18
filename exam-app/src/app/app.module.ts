@@ -8,11 +8,13 @@ import { ResponsiveDirective } from './core/responsive.directive';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WholePrivacyComponent } from './whole-privacy/whole-privacy.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WholePrivacyComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,19 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
-  }
-
-  .style{
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 33.33%;
-    height: 100%;
-    background-image: url('https://www.shutterstock.com/image-photo/adult-woman-checking-her-bank-260nw-2065300475.jpg'); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
+    background-color: #f8f9fa;
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
