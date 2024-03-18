@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ResponsiveDirective } from './core/responsive.directive';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ResponsiveDirective } from './core/responsive.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

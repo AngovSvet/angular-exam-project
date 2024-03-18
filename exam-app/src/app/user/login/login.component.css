@@ -1,0 +1,106 @@
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    color: #388e3c;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2e7d32;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #388e3c, #2e7d32);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+  }
+  
+  .register {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register p {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .register-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #388e3c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-link:hover {
+    background-color: #2e7d32;
+  }
+  
+  .additional-links {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .additional-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .additional-links a:hover {
+    text-decoration: underline;
+  }
+
+  .input-group label {
+    display: flex;
+    align-items: center; /* Center the icon vertically */
+    margin-bottom: 5px;
+    color: #2e7d32;
+  }
+  
+  .input-group label i {
+    margin-right: 10px; /* Adjust the space between the icon and the input field */
+  }
+  
+  .input-group input {
+    width: calc(100% - 30px); /* Adjust the width of the input field to accommodate the icon */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  
+  
+  
+  
