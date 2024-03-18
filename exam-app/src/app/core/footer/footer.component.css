@@ -1,0 +1,62 @@
+footer {
+    background: linear-gradient(135deg, #388e3c, #2e7d32);
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+    animation: flowColors 10s infinite alternate;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .bank-info,
+  .contact-info {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .bank-info h3,
+  .contact-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-info ul li {
+    margin-bottom: 5px;
+  }
+  
+  .contact-info ul li span {
+    font-weight: bold;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  @keyframes flowColors {
+    0% {
+      background: linear-gradient(135deg, #388e3c, #2e7d32);
+    }
+    50% {
+      background: linear-gradient(135deg, #2e7d32, #388e3c);
+    }
+    100% {
+      background: linear-gradient(135deg, #388e3c, #2e7d32);
+    }
+  }
+  
