@@ -1,0 +1,100 @@
+
+.register-container {
+    max-width: 400px;
+    margin: 0 auto; /* Center the register container horizontally */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-container h2 {
+    text-align: center;
+    color: #388e3c;
+  }
+  
+  .register-container .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .register-container .input-group label {
+    display: flex;
+    align-items: center; /* Center the icon vertically */
+    margin-bottom: 5px;
+    color: #2e7d32;
+  }
+  
+  .register-container .input-group label i {
+    margin-right: 10px; /* Adjust the space between the icon and the input field */
+  }
+  
+  .register-container .input-group input {
+    width: calc(100% - 30px); /* Adjust the width of the input field to accommodate the icon */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .register-reference {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register-reference p {
+    color: #555;
+  }
+  
+  .register-reference a {
+    color: #388e3c;
+    text-decoration: none;
+  }
+  
+  .register-reference a:hover {
+    text-decoration: underline;
+  }
+
+  .register-container button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #388e3c, #2e7d32);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .register-container button:hover {
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+  }
+  
+  .login-reference {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .login-reference p {
+    color: #555;
+  }
+  
+  .login-reference a {
+    color: #388e3c;
+    text-decoration: none;
+  }
+  
+  .login-reference a:hover {
+    text-decoration: underline;
+  }
+  .additional-links {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .additional-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .additional-links a:hover {
+    text-decoration: underline;
+  }
