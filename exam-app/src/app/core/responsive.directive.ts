@@ -17,7 +17,6 @@ export class ResponsiveDirective implements OnInit{
     } else {
       this.renderer.removeClass(this.elemRef.nativeElement,"responsive")
     }
-    console.log(this.elemRef.nativeElement.className);
     
   }
 

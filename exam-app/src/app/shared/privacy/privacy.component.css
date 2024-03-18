@@ -1,0 +1,27 @@
+.privacy-policy {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .privacy-policy h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .privacy-policy p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .privacy-policy a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .privacy-policy a:hover {
+    text-decoration: underline;
+  }
+  

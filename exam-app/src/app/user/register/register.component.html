@@ -23,6 +23,8 @@
       <p>Already have an account? <a routerLink="/login">Login here</a>.</p>
     </div>
     <div class="additional-links">
-        <a href="#">Privacy Policy</a>
+        <a (click)="onClick()">Privacy Policy</a>
       </div>
+
+      <div *ngIf="isRendered"><app-privacy/></div>
 </div>

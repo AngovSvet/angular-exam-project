@@ -16,6 +16,7 @@
       <a routerLink="/register" class="register-link">Register Now</a>
     </div>
     <div class="additional-links">
-      <a href="#">Privacy Policy</a>
+      <a (click)="onClick()">Privacy Policy</a>
     </div>
+    <div *ngIf="isRender"><app-privacy/></div>
   </div>
