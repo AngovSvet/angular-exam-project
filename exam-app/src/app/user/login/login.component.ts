@@ -16,7 +16,7 @@ export class LoginComponent {
 
     form = this.fb.group({
       username:['',[Validators.required,Validators.minLength(3)]],
-      password:['',[Validators.required,Validators.minLength(5)]]
+      password:['',[Validators.required,Validators.minLength(8)]]
     })
     onClick(){
      this.privacy.changeStatus()
@@ -25,9 +25,8 @@ export class LoginComponent {
      
     }
 
-    onSubmit(form:FormGroup){
-      console.log(form);
-      console.log(form.invalid);
+    onSubmit(logForm:FormGroup){
+      console.log(logForm);
       
       
     }

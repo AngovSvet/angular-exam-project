@@ -1,23 +1,61 @@
 <div class="register-container">
     <h2>Register</h2>
-    <form action="#" method="POST">
+    <form [formGroup]="form" (submit)="onSubmit(form)">
       <div class="input-group">
         <label for="username"><i class="fas fa-user"></i></label>
-        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="text" id="username" name="username" placeholder="Username" formControlName="username">
+        <ng-container *ngIf="form.get('username')?.touched">
+          <div class="error-message" *ngIf="form.get('username')?.hasError('required')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Username is required.</span>
+          </div>
+          <div class="error-message" *ngIf="form.get('username')?.hasError('minlength')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Username must be longer than {{form.get('username')?.getError('minlength').requiredLength}} characters</span>
+          </div>
+        </ng-container>
       </div>
       <div class="input-group">
         <label for="email"><i class="fas fa-envelope"></i></label>
-        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="email" id="email" name="email" placeholder="Email" formControlName="email">
+        <ng-container *ngIf="form.get('email')?.touched">
+          <div class="error-message" *ngIf="form.get('email')?.hasError('required')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Email is required.</span>
+          </div>
+          <div class="error-message" *ngIf="form.get('email')?.hasError('emailValidator')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Invalid email.</span>
+          </div>
+        </ng-container>
       </div>
+      <ng-container formGroupName="passwordGr">
       <div class="input-group">
         <label for="password"><i class="fas fa-lock"></i></label>
-        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="password" id="password" name="password" placeholder="Password" formControlName="password">
+        <ng-container *ngIf="form.get('passwordGr')?.get('password')?.touched">
+          <div class="error-message" *ngIf="form.get('passwordGr')?.get('password')?.hasError('required')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Password is required.</span>
+          </div>
+        <div class="error-message" *ngIf="form.get('passwordGr')?.get('password')?.hasError('minlength')">
+          <i class="fas fa-exclamation-circle"></i>
+          <span>Password must be longer than {{form.get('passwordGr')?.get('password')?.getError('minlength').requiredLength -1}} characters</span>
+        </div> 
+        </ng-container>
       </div>
       <div class="input-group">
         <label for="repeat-password"><i class="fas fa-lock"></i></label>
-        <input type="password" id="repeat-password" name="repeat-password" placeholder="Repeat Password" required>
+        <input type="password" id="repeat-password" name="repeatPassword" placeholder="Repeat Password" formControlName="repeatPassword">
       </div>
-      <button type="submit">Register</button>
+      <ng-container *ngIf="form.get('passwordGr')?.get('repeatPassword')?.touched">
+        <div class="error-message" *ngIf="form.get('passwordGr')?.hasError('missmatch')">
+          <i class="fas fa-exclamation-circle"></i>
+          <span>Passwords must match.</span>
+        </div>
+      </ng-container>
+      </ng-container>
+      <button type="submit" [disabled]="form.invalid" [style]="{background: form.invalid ? 'grey':'#388e3c'}">Register</button>
     </form>
     <div class="login-reference">
       <p>Already have an account? <a routerLink="/login">Login here</a>.</p>

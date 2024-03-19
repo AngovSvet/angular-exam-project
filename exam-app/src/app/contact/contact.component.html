@@ -36,7 +36,7 @@
             </div>
             <div class="error-message" *ngIf="form.get('message')?.hasError('minlength')">
               <i class="fas fa-exclamation-circle"></i>
-              <span>Message must be longer than {{form.get('message')?.getError('minlength').requiredLength}} characters</span>
+              <span>Message must be longer than {{form.get('message')?.getError('minlength').requiredLength -1}} characters</span>
             </div>
           </ng-container>
         </div>
