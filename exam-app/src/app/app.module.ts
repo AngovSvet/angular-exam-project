@@ -14,6 +14,9 @@ import { ErrorComponent } from './404/404.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AccountModule } from './account/account.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PopUpComponent } from './shared/pop-up/pop-up.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { AccountModule } from './account/account.module';
     AccountModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

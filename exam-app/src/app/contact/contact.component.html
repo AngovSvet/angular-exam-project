@@ -1,21 +1,50 @@
 <section class="contact-section">
     <div class="container">
       <h2>Contact Us</h2>
-      <form class="contact-form">
+      <form class="contact-form" [formGroup]="form" (submit)="onSubmit(form)">
         <div class="form-group">
           <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" formControlName="name">
+          <ng-container *ngIf="form.get('name')?.touched">
+          <div class="error-message" *ngIf="form.get('name')?.hasError('required')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Name is required.</span>
+          </div>
+        </ng-container>
         </div>
         <div class="form-group">
           <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" formControlName="email">
+          <ng-container *ngIf="form.get('email')?.touched">
+            <div class="error-message" *ngIf="form.get('email')?.hasError('required')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Email is required.</span>
+            </div>
+            <div class="error-message" *ngIf="form.get('email')?.hasError('emailValidator')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Invalid email.</span>
+            </div>
+          </ng-container>
         </div>
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+          <textarea id="message" name="message" rows="5" formControlName="message"></textarea>
+          <ng-container *ngIf="form.get('message')?.touched">
+            <div class="error-message" *ngIf="form.get('message')?.hasError('required')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Message is required.</span>
+            </div>
+            <div class="error-message" *ngIf="form.get('message')?.hasError('minlength')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Message must be longer than {{form.get('message')?.getError('minlength').requiredLength}} characters</span>
+            </div>
+          </ng-container>
         </div>
-        <button type="submit" class="btn">Send Message</button>
+        <button type="submit" class="btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey':'#007bff'}">Send Message</button>
       </form>
     </div>
+
+    <div *ngIf="render"><app-pop-up /></div>
+
   </section>
 
