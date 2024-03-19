@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .error-content {
+    text-align: center;
+  }
+  
+  .error-content h1 {
+    font-size: 200px; /* Increased font size */
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .error-content p {
+    font-size: 24px;
+  }
+  
+  /* Button styles */
+  .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Add smooth transition effect */
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+  
+  /* Animation for rotating zero */
+  .rotate-zero {
+    display: inline-block;
+    animation: spin 2s linear infinite; /* Spin animation */
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg); /* Rotate 360 degrees */
+    }
+  }

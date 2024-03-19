@@ -31,21 +31,9 @@
     <div class="container">
       <h2>What Our Customers Say</h2>
       <div class="testimonial-slider">
-      <div class="testimonial">
-        <p>"BankingPlus has made managing my finances so much easier. I love the convenience of their online banking platform."</p>
-        <span>- John Doe</span>
-      </div>
-      <div class="testimonial">
-        <p>"The mobile banking app is fantastic! I can check my account balance and transfer funds with just a few taps."</p>
-        <span>- Jane Smith</span>
-      </div>
-      <div class="testimonial">
-        <p>"I've been a customer for years, and BankingPlus never disappoints. Their customer service is top-notch."</p>
-        <span>- Emily Johnson</span>
-      </div>
-      <div class="testimonial">
-        <p>"BankingPlus offers excellent interest rates on their savings accounts. I'm glad I switched over!"</p>
-        <span>- Michael Brown</span>
+      <div class="testimonial" *ngFor="let review of reviews">
+        <p>{{review.text}}</p>
+        <span>- {{review.name}}</span>
       </div>
       </div>
     </div>
