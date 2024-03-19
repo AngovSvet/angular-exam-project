@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PolicyService } from 'src/app/shared/privacy/policy.service';
-import { PrivacyComponent } from 'src/app/shared/privacy/privacy.component';
+
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,23 @@ import { PrivacyComponent } from 'src/app/shared/privacy/privacy.component';
 export class LoginComponent {
 
   isRender:boolean=false
-  constructor(private privacy:PolicyService){}
+  constructor(private privacy:PolicyService, private fb:FormBuilder){}
+
+    form = this.fb.group({
+      username:['',[Validators.required,Validators.minLength(3)]],
+      password:['',[Validators.required,Validators.minLength(5)]]
+    })
     onClick(){
      this.privacy.changeStatus()
      this.isRender=this.privacy.shouldAppear
      console.log(this.isRender);
      
-     
+    }
+
+    onSubmit(form:FormGroup){
+      console.log(form);
+      console.log(form.invalid);
+      
+      
     }
 }
