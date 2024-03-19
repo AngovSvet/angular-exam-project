@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './404/404.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AccountModule } from './account/account.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ContactComponent } from './contact/contact.component';
     BrowserModule,
     CoreModule,
     UserModule,
+    AccountModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
