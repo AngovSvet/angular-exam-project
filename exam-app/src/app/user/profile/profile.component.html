@@ -2,7 +2,6 @@
     <div class="container">
       <div class="profile-card">
         <div class="profile-picture">
-          <!-- Placeholder for profile picture -->
           <img src="../../../assets/profile.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
@@ -13,6 +12,16 @@
             <button class="delete-btn">Delete Profile</button>
           </div>
         </div>
+      </div>
+      <div class="edit-profile" *ngIf="wantsToEdit">
+        <h2>Edit Profile</h2>
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" value="John Doe">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="johndoe@example.com">
+          <button type="submit">Save Changes</button>
+        </form>
       </div>
       <div class="accounts-section">
         <h2>My Accounts</h2>
@@ -26,6 +35,7 @@
             <p>Balance: $1000</p>
           </div>
         </div>
+
         <div class="account-box">
           <i class="fas fa-piggy-bank icon"></i>
           <div class="account-details">
@@ -38,6 +48,7 @@
         </div>
         <!-- Add more account boxes as needed -->
       </div>
+      
     </div>
   </section>
   

@@ -17,6 +17,7 @@ import { AccountModule } from './account/account.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PopUpComponent } from './shared/pop-up/pop-up.component';
 import { SharedModule } from './shared/shared.module';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
     ErrorComponent,
     AboutComponent,
     ContactComponent,
+    OffersComponent,
   ],
   imports: [
     BrowserModule,
