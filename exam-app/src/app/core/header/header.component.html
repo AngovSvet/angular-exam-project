@@ -12,10 +12,19 @@
         </div>
     </div>
     <a routerLink="/contact">Contact</a>
+    <div *ngIf="!isLogged">
     <a routerLink="/login" class="login">Login</a>
     <a routerLink="/register" class="register">Register</a>
     <a class="icon" >
         &#9776;
     </a>
+    </div>
+    <div *ngIf="isLogged">
+        <a routerLink="/profile" class="login">Ben's profice</a>
+        <a routerLink="/register" class="register">Log out</a>
+        <a class="icon" >
+            &#9776;
+        </a>
+        </div>
 </nav>
 

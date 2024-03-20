@@ -1,0 +1,113 @@
+.profile-section {
+    padding: 80px 0;
+  }
+  
+  .profile-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .profile-info {
+    flex: 2;
+    padding-left: 30px;
+  }
+  
+  .username {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .email {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .edit-btn:hover,
+  .delete-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Accounts section styles */
+  .accounts-section {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap; /* Allow boxes to wrap to the next row */
+    justify-content: center; /* Center boxes horizontally */
+  }
+  
+  .accounts-section h2 {
+    width: 100%; /* Ensure full width */
+    text-align: center; /* Center align the title */
+    margin-top: 20px; /* Add margin to the top of the title */
+  }
+  
+  .account-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px; /* Adjust box width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .account-details {
+    text-align: center;
+  }
+  
+  .status-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .status-btn:hover {
+    background-color: #0056b3;
+  }
+  
