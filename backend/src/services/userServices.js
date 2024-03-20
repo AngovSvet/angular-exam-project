@@ -25,8 +25,8 @@ export const register = async (email, password, username, rePass) => {
 };
 
 
-export const login = async (email,password) =>{
-    let user = await User.findOne({email})
+export const login = async (username,password) =>{
+    let user = await User.findOne({username})
 
     if (!user){
         throw new Error("Invalid email or password")
@@ -41,7 +41,7 @@ export const login = async (email,password) =>{
     user = bsonToJson(user)
     user = removePassword(user);
 
-    const token = await getToken(email,user._id)
+    const token = await getToken(username,user._id)
 
     return {token, user}
 

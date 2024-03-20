@@ -10,8 +10,6 @@ router.get("/reviews", async (req,res)=>{
 
     const reviews = await getAll();
 
-    console.log(reviews);
-
     res.json(reviews)
 })
 

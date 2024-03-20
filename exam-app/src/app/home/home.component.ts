@@ -9,6 +9,8 @@ import { Review } from '../types/reviewType';
 })
 export class HomeComponent implements OnInit{
 
+  isLogged=false
+
   reviews:Review[]=[]
 
   constructor(private homeFetch:HomeFetchService){}

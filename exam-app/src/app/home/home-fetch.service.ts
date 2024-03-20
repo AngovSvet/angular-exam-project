@@ -10,7 +10,6 @@ export class HomeFetchService {
   constructor(private http:HttpClient) { }
 
   getReviews(){
-    const url = 'http://localhost:3000/reviews';
-    return this.http.get<Review[]>(url);
+    return this.http.get<Review[]>('reviews');
   }
 }

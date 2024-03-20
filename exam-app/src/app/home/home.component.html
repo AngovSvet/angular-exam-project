@@ -2,7 +2,9 @@
     <div class="container">
       <h2>Welcome to BankingPlus</h2>
       <p>Experience the convenience of modern banking with BankingPlus. Manage your finances anytime, anywhere.</p>
-      <a href="#" class="btn">Get Started</a>
+      <div *ngIf="!isLogged">
+      <a routerLink="/user/register" class="btn">Get Started</a>
+      </div>
     </div>
   </section>
 
@@ -43,6 +45,6 @@
     <div class="container">
       <h2>Special Offers</h2>
       <p>Take advantage of our current promotions and offers.</p>
-      <a href="#" class="btn">Learn More</a>
+      <a routerLink="/offers" class="btn">Learn More</a>
     </div>
   </section>

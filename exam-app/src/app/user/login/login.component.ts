@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PolicyService } from 'src/app/shared/privacy/policy.service';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { PolicyService } from 'src/app/shared/privacy/policy.service';
 export class LoginComponent {
 
   isRender:boolean=false
-  constructor(private privacy:PolicyService, private fb:FormBuilder){}
+  constructor(private privacy:PolicyService, private fb:FormBuilder, private userService:UserService, private router:Router){}
 
     form = this.fb.group({
       username:['',[Validators.required,Validators.minLength(3)]],
@@ -26,7 +28,13 @@ export class LoginComponent {
     }
 
     onSubmit(logForm:FormGroup){
-      console.log(logForm);
+      const {username, password} = logForm.value
+
+      this.userService.login(username,password).subscribe({
+        next:()=>this.router.navigate(['/home']),
+        error:(err)=>console.log(err)
+        
+      })
       
       
     }

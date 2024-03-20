@@ -4,7 +4,7 @@ import * as jwt from "../utils/jwt.js"
 
 export function auth(){
     return async function (req,res,next){
-        const token = req.cookies["auth"] || "";
+        const token = req.cookies["auth-cookie"] || "";
 
         if(!token){
             return res.json("Token needed")
@@ -22,7 +22,7 @@ export function auth(){
             next()
         } catch (error) {
             res.clearCookie("auth");
-            res.json("Invalid Token!")
+            res.send({ message: "Invalid token!" })
         }
     }
 

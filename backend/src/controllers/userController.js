@@ -13,7 +13,7 @@ router.post("/user/register", async (req, res) => {
     // const rePass = "123456789"
 try {
     const {token,user} = await register(email, password, username, rePass);
-  res.cookie("auth",token,{httpOnly:true});
+  res.cookie("auth-cookie",token,{httpOnly:true});
 
   res.status(200).json(user)
 } catch (error) {
@@ -23,12 +23,12 @@ try {
 });
 
 router.post("/user/login",async (req,res)=>{
-    const {email,password} = req.body
+    const {username,password} = req.body
     // const email ="al@abv.bg"
     // const password = "123456789"
     try {
-        const {token,user} = await login(email,password);
-        res.cookie("auth",token,{httpOnly:true})
+        const {token,user} = await login(username,password);
+        res.cookie("auth-cookie",token,{httpOnly:true})
         res.status(200).json(user)
     } catch (error) {
         const message = errorHandler(error);
@@ -38,10 +38,10 @@ router.post("/user/login",async (req,res)=>{
 })
 
 router.get("/user/logout", async (req,res)=>{
-    const token = req.cookies["auth"];
+    const token = req.cookies["auth-cookie"];
     try {
         await BlackList.create({token:token})
-        res.clearCookie("auth").status(200).send("Logged out")
+        res.clearCookie("auth-cookie").send()
     } catch (error) {
         const message = errorHandler(error);
         res.status(400).json({error:message}) 

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EMAIL_DOMAINS } from 'src/app/constants/domainConst';
 import { PolicyService } from 'src/app/shared/privacy/policy.service';
 import { emailValidator } from 'src/app/utils/emailValidator';
 import { passwordValidator } from 'src/app/utils/pass-Validator';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,7 @@ import { passwordValidator } from 'src/app/utils/pass-Validator';
 export class RegisterComponent{
   isRendered:boolean|undefined
 
-  constructor(private privacy:PolicyService, private fb:FormBuilder){}
+  constructor(private privacy:PolicyService, private fb:FormBuilder, private router:Router, private userService:UserService){}
 
     form=this.fb.group({
       username:['',[Validators.required,Validators.minLength(3)]],
@@ -36,7 +38,17 @@ export class RegisterComponent{
 
     onSubmit(regForm:FormGroup){
       console.log(regForm.value);
+
+      const username = regForm.value.username;
+      const email= regForm.value.email;
+      const password= regForm.value.passwordGr.password
+      const repeatPassword= regForm.value.passwordGr.repeatPassword
+
       
-      
+      this.userService.register(username,email,password,repeatPassword).subscribe({
+        next:()=>this.router.navigate(['/home']),
+        error:(err)=>console.log(err)
+        
+      })
     }
 }
