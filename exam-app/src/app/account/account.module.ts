@@ -4,6 +4,7 @@ import { AccountCreateComponent } from './account-create/account-create.componen
 import { RouterModule } from '@angular/router';
 import { AccountRoutingModule } from './account-routing.module';
 import { DetailsComponent } from './details/details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { DetailsComponent } from './details/details.component';
   imports: [
     CommonModule,
     RouterModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AccountModule { }

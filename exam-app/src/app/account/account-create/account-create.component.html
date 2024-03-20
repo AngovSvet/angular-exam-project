@@ -2,23 +2,49 @@
   <div class="container">
     <div class="form-wrapper">
       <h2>Open New Account</h2>
-      <form class="account-form">
+      <form class="account-form" [formGroup]="form" (submit)="onSubmit(form)">
         <div class="form-group">
           <label for="account-type">Account Type</label>
-          <select id="account-type" name="account-type">
+          <select id="account-type" name="accType" formControlName="accType">
             <option value="checking">Checking</option>
             <option value="savings">Savings</option>
           </select>
+          <ng-container *ngIf="form.get('accType')?.touched">
+            <div class="error-message" *ngIf="form.get('accType')?.hasError('required')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Account type is required.</span>
+            </div>
+          </ng-container>
         </div>
         <div class="form-group">
           <label for="currency">Currency</label>
-          <input type="text" id="currency" name="currency" required>
+          <select id="currency" name="currency" formControlName="currency">
+            <option value="BG">BG</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+          <ng-container *ngIf="form.get('currency')?.touched">
+            <div class="error-message" *ngIf="form.get('currency')?.hasError('required')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Specify currency.</span>
+            </div>
+          </ng-container>
         </div>
         <div class="form-group">
           <label for="initial-deposit">Initial Deposit</label>
-          <input type="number" id="initial-deposit" name="initial-deposit" required>
+          <input type="number" id="initial-deposit" name="initial-deposit" formControlName="deposit">
+          <ng-container *ngIf="form.get('deposit')?.touched">
+            <div class="error-message" *ngIf="form.get('deposit')?.hasError('required')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Deposit is required.</span>
+            </div>
+            <div class="error-message" *ngIf="form.get('deposit')?.hasError('min')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Deposit must be atleast {{form.get('deposit')?.getError('min').min}}.</span>
+            </div>
+          </ng-container>
         </div>
-        <button type="submit" class="btn">Open Account</button>
+        <button type="submit" class="btn" [disabled]="form.invalid" [style]="{background: form.invalid ? 'grey':'#388e3c'}">Open Account</button>
       </form>
     </div>
   </div>

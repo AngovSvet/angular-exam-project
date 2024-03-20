@@ -54,3 +54,19 @@
 .btn:hover {
   background-color: #0056b3; /* Change background color on hover */
 }
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message i {
+  color: #721c24;
+  margin-right: 5px;
+}
