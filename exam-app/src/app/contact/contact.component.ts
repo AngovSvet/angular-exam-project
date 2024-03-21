@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { emailValidator } from '../utils/emailValidator';
 import { EMAIL_DOMAINS } from '../constants/domainConst';
 import { Router } from '@angular/router';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,7 @@ export class ContactComponent{
 
   render:boolean =false
 
-  constructor(private fb: FormBuilder,){}
+  constructor(private fb: FormBuilder, private messageSurvice:ContactService){}
 
   form = this.fb.group({
     name:['', [Validators.required]],
@@ -23,6 +24,9 @@ export class ContactComponent{
 
 
   onSubmit(form:FormGroup){
-    this.render=true
+    const {name,email,message} = form.value
+    this.messageSurvice.sendMessage(name,email,message).subscribe({
+      next:(value)=>this.render=true
+    })
   }
 }

@@ -26,14 +26,19 @@ router.post("/message", async (req,res)=>{
    res.json(message)
     } catch (error) {
         let message = errorHandler(error);
+        res.status(400).json({error:message})
     }
 })
 
 router.get("/offer", async (req,res)=>{
     
-
-    const offers = await getAllOffers();
+    try {
+        const offers = await getAllOffers();
     res.json(offers)
+    } catch (error) {
+        const message = errorHandler(error);
+        res.status(400).json({error:message})
+    }
 })
 
 

@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Offer } from '../types/offers';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OfferFetchService {
+export class ContactService {
 
   constructor(private http:HttpClient) { }
 
-  getOffers(){
-    return this.http.get<Offer[]>('offer')
+  sendMessage(name:string,email:string,message:string){
+    return this.http.post("message",{name,email,message})
   }
 }
