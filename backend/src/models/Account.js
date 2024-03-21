@@ -4,7 +4,7 @@ const accountSchema = new mongoose.Schema({
     accType:{
         type:String,
     },
-    dposit:{
+    deposit:{
         type:Number
     },
     currency:{

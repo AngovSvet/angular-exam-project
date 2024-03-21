@@ -46,3 +46,12 @@ export const login = async (username,password) =>{
     return {token, user}
 
 }
+
+export const getProfile= async (id)=>{
+  let user =  await User.findById(id).populate('accounts');
+
+  user = bsonToJson(user)
+  user = removePassword(user);
+
+  return user
+}

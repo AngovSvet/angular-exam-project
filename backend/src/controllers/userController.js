@@ -1,7 +1,8 @@
 import express from "express";
-import { register, login} from "../services/userServices.js";
+import { register, login, getProfile} from "../services/userServices.js";
 import { errorHandler } from "../utils/error.js";
 import { BlackList } from "../models/BlackList.js";
+import { auth } from "../utils/auth.js";
 
 const router = express.Router();
 
@@ -24,7 +25,7 @@ try {
 
 router.post("/user/login",async (req,res)=>{
     const {username,password} = req.body
-    // const email ="al@abv.bg"
+    // const username ="mes"
     // const password = "123456789"
     try {
         const {token,user} = await login(username,password);
@@ -42,6 +43,18 @@ router.get("/user/logout", async (req,res)=>{
     try {
         await BlackList.create({token:token})
         res.clearCookie("auth-cookie").send()
+    } catch (error) {
+        const message = errorHandler(error);
+        res.status(400).json({error:message}) 
+    }
+})
+
+router.post('/user/profile', auth(),async (req,res)=>{
+    const {id} = req.body
+
+    try {
+        const profile = await getProfile(id);
+        res.json(profile)
     } catch (error) {
         const message = errorHandler(error);
         res.status(400).json({error:message}) 

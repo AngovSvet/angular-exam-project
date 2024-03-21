@@ -12,9 +12,9 @@ router.post("/account/create",auth(),async (req,res)=>{
 
     const data = req.body
     // const data = {
-    //     accoutType:"Checking",
-    //     balance:"12000",
-    //     currency:"Lev",
+    //     accType:"Savings",
+    //     deposit:"30000",
+    //     currency:"Usd",
     //     status:"active",
     //     owner:userId
     // }
