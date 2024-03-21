@@ -49,8 +49,8 @@ router.get("/user/logout", async (req,res)=>{
     }
 })
 
-router.post('/user/profile', auth(),async (req,res)=>{
-    const {id} = req.body
+router.get('/user/profile', auth(),async (req,res)=>{
+    const id = req.user.id
 
     try {
         const profile = await getProfile(id);

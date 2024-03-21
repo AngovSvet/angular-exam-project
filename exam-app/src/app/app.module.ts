@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { OffersComponent } from './offers/offers.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticatingComponent } from './authenticating/authenticating.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { appInterceptorProvider } from './app.interceptor';
     AboutComponent,
     ContactComponent,
     OffersComponent,
+    AuthenticatingComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
 
     this.activRoute.params.subscribe({
-      next:(value)=>this.userService.getProfile(value['userId']).subscribe({
+      next:(value)=>this.userService.getProfile().subscribe({
         next:(profile)=>this.userProfile=profile
         
       })
