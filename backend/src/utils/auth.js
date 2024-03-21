@@ -7,12 +7,16 @@ export function auth(){
         const token = req.cookies["auth-cookie"] || "";
 
         if(!token){
-            return res.json("Token needed")
+            return res
+            .status(401)
+            .send({ message: "No token!" });
         }
 
         const check = await BlackList.findOne({token});
             if(check){
-                res.json("BlackListed Token")
+                res
+                        .status(401)
+                        .send({ message: "Blacklisted token!" });
             }
 
         try {

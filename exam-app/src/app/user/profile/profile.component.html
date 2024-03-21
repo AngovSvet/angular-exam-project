@@ -26,7 +26,8 @@
       <div class="accounts-section">
         <h2>My Accounts</h2>
         <div class="account-box" *ngFor="let account of userProfile?.accounts">
-          <i class="fas fa-money-check-alt icon"></i>
+          <i class="fas fa-money-check-alt icon" *ngIf="account.accType==='Checking'"></i>
+          <i class="fas fa-piggy-bank icon" *ngIf="account.accType==='Savings'"></i>
           <div class="account-details">
             <h3>{{account.accType}}</h3>
             <p>Currency: {{account.currency}}</p>

@@ -3,7 +3,7 @@
       <h2>Welcome to BankingPlus</h2>
       <p>Experience the convenience of modern banking with BankingPlus. Manage your finances anytime, anywhere.</p>
       <div *ngIf="!isLogged">
-      <a routerLink="/user/register" class="btn">Get Started</a>
+      <a routerLink="/user/register" class="btn" *ngIf="!isLogged">Get Started</a>
       </div>
     </div>
   </section>

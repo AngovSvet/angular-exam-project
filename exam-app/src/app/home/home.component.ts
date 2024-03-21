@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeFetchService } from './home-fetch.service';
 import { Review } from '../types/reviewType';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,13 @@ import { Review } from '../types/reviewType';
 })
 export class HomeComponent implements OnInit{
 
-  isLogged=false
+  get isLogged(){
+    return this.userService.isLogged
+  }
 
   reviews:Review[]=[]
 
-  constructor(private homeFetch:HomeFetchService){}
+  constructor(private homeFetch:HomeFetchService, private userService:UserService){}
 
   ngOnInit(): void {
     this.homeFetch.getReviews().subscribe({

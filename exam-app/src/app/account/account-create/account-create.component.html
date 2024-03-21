@@ -6,8 +6,8 @@
         <div class="form-group">
           <label for="account-type">Account Type</label>
           <select id="account-type" name="accType" formControlName="accType">
-            <option value="checking">Checking</option>
-            <option value="savings">Savings</option>
+            <option value="Checking">Checking</option>
+            <option value="Savings">Savings</option>
           </select>
           <ng-container *ngIf="form.get('accType')?.touched">
             <div class="error-message" *ngIf="form.get('accType')?.hasError('required')">

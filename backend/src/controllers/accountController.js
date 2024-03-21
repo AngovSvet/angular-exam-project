@@ -18,6 +18,7 @@ router.post("/account/create",auth(),async (req,res)=>{
     //     status:"active",
     //     owner:userId
     // }
+    data.status="Active"
     data.owner=userId
     try {
         const account = await createAcc(data);

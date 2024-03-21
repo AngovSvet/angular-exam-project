@@ -14,8 +14,8 @@ export class AuthenticatingComponent implements OnInit{
 
   ngOnInit(): void {
     this.userService.getProfile().subscribe({
-      next:()=>{this.isAuthenticating=false},
-      error:()=>{this.isAuthenticating=false},
+      next:()=>{ this.isAuthenticating=false},
+      error:()=>{ this.isAuthenticating=false},
       complete:()=>{this.isAuthenticating=false}
     })
   }

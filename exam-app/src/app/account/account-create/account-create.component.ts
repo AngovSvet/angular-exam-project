@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AccountService } from '../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-create',
@@ -8,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AccountCreateComponent {
 
-  constructor(private fb:FormBuilder){}
+  constructor(private fb:FormBuilder, private accountService:AccountService,private router:Router){}
 
   form=this.fb.group({
     accType:['', [Validators.required]],
@@ -17,6 +19,10 @@ export class AccountCreateComponent {
   })
 
   onSubmit(formAcc:FormGroup){
+    const {accType,currency,deposit}= formAcc.value;
+    this.accountService.createAcc(accType,currency,deposit).subscribe({
+      next:()=>this.router.navigate(["/home"])
+    })
     console.log(formAcc);
     
   }
