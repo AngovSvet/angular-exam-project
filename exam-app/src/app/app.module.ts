@@ -32,7 +32,6 @@ import { AuthenticatingComponent } from './authenticating/authenticating.compone
   imports: [
     BrowserModule,
     CoreModule,
-    AccountModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,

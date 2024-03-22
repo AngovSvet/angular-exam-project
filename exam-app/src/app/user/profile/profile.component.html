@@ -9,7 +9,6 @@
           <p class="email">Email: {{userProfile?.email}}</p>
           <div class="buttons">
             <button class="edit-btn" (click)="changeView()">Edit Profile</button>
-            <button class="delete-btn">Delete Profile</button>
           </div>
         </div>
       </div>
@@ -49,7 +48,7 @@
           <i class="fas fa-money-check-alt icon" *ngIf="account.accType==='Checking'"></i>
           <i class="fas fa-piggy-bank icon" *ngIf="account.accType==='Savings'"></i>
           <div class="account-details">
-            <h3>{{account.accType}}</h3>
+            <h3 [routerLink]="['/account',account._id]">{{account.accType}}</h3>
             <p>Currency: {{account.currency}}</p>
             <p>Status: {{account.status}}</p>
             <button class="status-btn">Change Status</button>

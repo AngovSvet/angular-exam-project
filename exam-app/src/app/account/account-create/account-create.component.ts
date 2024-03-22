@@ -21,9 +21,9 @@ export class AccountCreateComponent {
   onSubmit(formAcc:FormGroup){
     const {accType,currency,deposit}= formAcc.value;
     this.accountService.createAcc(accType,currency,deposit).subscribe({
-      next:()=>this.router.navigate(["/home"])
+      next:(value)=>this.router.navigate(["/home"])
+      
     })
-    console.log(formAcc);
     
   }
 

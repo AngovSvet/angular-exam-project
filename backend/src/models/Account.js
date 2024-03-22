@@ -12,7 +12,7 @@ const accountSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        match:/\b(?:active|inactive)\b/
+        match:/\b(?:Active|Inactive)\b/
     },
     owner:{
         type: mongoose.Types.ObjectId,

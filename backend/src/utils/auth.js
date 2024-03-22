@@ -9,14 +9,14 @@ export function auth(){
         if(!token){
             return res
             .status(401)
-            .send({ message: "No token!" });
+            .send({ error: "No token!" });
         }
 
         const check = await BlackList.findOne({token});
             if(check){
                 res
                         .status(401)
-                        .send({ message: "Blacklisted token!" });
+                        .send({ error: "Blacklisted token!" });
             }
 
         try {
@@ -26,7 +26,7 @@ export function auth(){
             next()
         } catch (error) {
             res.clearCookie("auth");
-            res.send({ message: "Invalid token!" })
+            res.send({ error: "Invalid token!" })
         }
     }
 

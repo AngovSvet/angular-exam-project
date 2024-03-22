@@ -6,7 +6,7 @@
         <div class="detail">
           <img src="../../../assets/profile.png" alt="Profile Picture" class="profile-picture">
           <span class="label"><i class="fas fa-user"></i> Owner:</span>
-          <span class="value">John Doe</span>
+          <span class="value">{{account?.owner.username}}</span>
         </div>
         <!-- Add more owner details as needed -->
       </div>
@@ -15,19 +15,19 @@
         <div class="account-details">
           <div class="detail">
             <span class="label"><i class="fas fa-check-circle"></i> Status:</span>
-            <span class="value">Active</span>
+            <span class="value">{{account?.status}}</span>
           </div>
           <div class="detail">
             <span class="label"><i class="fas fa-dollar-sign"></i> Currency:</span>
-            <span class="value">USD</span>
+            <span class="value">{{account?.currency}}</span>
           </div>
           <div class="detail">
             <span class="label"><i class="fas fa-balance-scale"></i> Balance:</span>
-            <span class="value">$1,000.00</span>
+            <span class="value">{{account?.deposit}}</span>
           </div>
           <div class="detail">
             <span class="label"><i class="fas fa-credit-card"></i> Account Type:</span>
-            <span class="value">Savings</span>
+            <span class="value">{{account?.accType}}</span>
           </div>
           <div class="actions">
             <button class="delete-btn"><i class="fas fa-trash"></i> Delete Account</button>

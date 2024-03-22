@@ -53,7 +53,9 @@ export class ProfileComponent implements OnInit{
     const  email = form.value.email;
     const username = form.value.username
     this.userService.editProfile(email,username,id).subscribe({
-      next:()=>this.wantsToEdit=false
+      next:()=>this.userService.logOut().subscribe({
+        next:()=>this.router.navigate(['home'])
+      })
     });
   }
 }

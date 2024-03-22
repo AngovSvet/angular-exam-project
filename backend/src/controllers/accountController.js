@@ -11,13 +11,6 @@ router.post("/account/create",auth(),async (req,res)=>{
     const userId = req.user.id;
 
     const data = req.body
-    // const data = {
-    //     accType:"Savings",
-    //     deposit:"30000",
-    //     currency:"Usd",
-    //     status:"active",
-    //     owner:userId
-    // }
     data.status="Active"
     data.owner=userId
     try {
@@ -29,10 +22,11 @@ router.post("/account/create",auth(),async (req,res)=>{
     }
 })
 
-router.get("/get/accounts", auth(), async (req, res)=>{
+router.post("/get/account", auth(),owns, async (req, res)=>{
+    const id = req.body.id
 
     try {
-        const accounts = await getAccounts(req.user.id);
+        const accounts = await getAccounts(id);
         res.json(accounts)
     } catch (error) {
         const message = errorHandler(error);

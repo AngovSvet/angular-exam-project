@@ -5,7 +5,7 @@ import { DetailsComponent } from "./details/details.component";
 
 const routes:Routes=[
     {path:"createAccount", component:AccountCreateComponent},
-    {path:"details", component:DetailsComponent}
+    {path:":accountId", component:DetailsComponent}
 ]
 
 

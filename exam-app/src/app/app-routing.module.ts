@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:"contact",component:ContactComponent},
   {path:"offers",component:OffersComponent},
   {path:"user", loadChildren:()=> import ('./user/user.module').then((m)=>m.UserModule)},
+  {path:"account", loadChildren:()=> import ('./account/account.module').then((m)=>m.AccountModule)},
   {path:"**", redirectTo:"/404"},
   {path:"404", component:ErrorComponent}
 ];

@@ -11,10 +11,13 @@ export const createAcc = async (data) =>{
 }
 
 
-export const getAccounts = async (userId)=>{
-    const accounts = await Account.find({owner:userId})
-
-    return accounts;
+export const getAccounts = async (_id)=>{
+    try {
+        const account = await Account.findOne({_id}).populate('owner')
+        return account
+    } catch (error) {
+        throw new Error(error.message)
+    }
 }
 
 export const changeStatus = async (id, status)=>{

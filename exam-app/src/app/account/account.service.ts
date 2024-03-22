@@ -11,4 +11,8 @@ export class AccountService {
   createAcc(accType:string,currency:string,deposit:number){
     return this.http.post("account/create",{accType,currency,deposit})
   }
+
+  getAccDetails(id:string){
+    return this.http.post('get/account',{id})
+  }
 }
