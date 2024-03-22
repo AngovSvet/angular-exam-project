@@ -16,6 +16,14 @@ export class AccountService {
     return this.http.get(`getAcc/${id}`)
   }
 
+  deposit(id:string,amount:number){
+    return this.http.put(`accountDeposit/${id}`,{amount})
+  }
+  
+  withdraw(id:string,amount:number){
+    return this.http.put(`accountWithdraw/${id}`,{amount})
+  }
+
 
   deleteAcc(id:string){
     return this.http.delete(`accountDel/${id}`)

@@ -32,3 +32,22 @@ export const deleteAcc = async (id, userId) =>{
 
     return user;
 }
+
+export const deposit = async (id,amount)=>{
+    const account = await Account.findById(id);
+    const sum = account.deposit+amount;
+    const ac = await Account.findByIdAndUpdate(id,{deposit:sum},{new:true})
+
+    return ac
+}
+
+export const withdraw = async (id,amount)=>{
+    const account = await Account.findById(id);
+    if (amount>account.deposit) {
+        throw new Error("Insufficent funds")
+    }
+    const sum = account.deposit-amount;
+    const ac = await Account.findByIdAndUpdate(id,{deposit:sum},{new:true})
+
+    return ac
+}

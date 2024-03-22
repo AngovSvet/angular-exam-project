@@ -32,6 +32,8 @@
 </div>
 <div class="actions">
   <button class="delete-btn" (click)="onDelete(account?._id)">Delete Account</button>
-    <button mat-raised-button class="action-button deposit-button" color="primary" (click)="openDepositPopup()">Deposit</button>
-    <button mat-raised-button class="action-button withdraw-button" color="warn" (click)="openWithdrawPopup()">Withdraw</button>
+  <ng-container *ngIf="account?.status!=='Inactive'">
+    <button mat-raised-button class="action-button deposit-button" color="primary" (click)="openDepositPopup(account?._id)">Deposit</button>
+    <button mat-raised-button class="action-button withdraw-button" color="warn" (click)="openWithdrawPopup(account?._id)">Withdraw</button>
+  </ng-container>
 </div>

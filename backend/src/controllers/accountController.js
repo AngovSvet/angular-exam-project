@@ -1,6 +1,6 @@
 import express from "express";
 import { auth } from "../utils/auth.js";
-import { changeStatus, createAcc, deleteAcc, getAccounts } from "../services/accountServices.js";
+import { changeStatus, createAcc, deleteAcc, deposit, getAccounts, withdraw } from "../services/accountServices.js";
 import { errorHandler } from "../utils/error.js";
 import { owns } from "../utils/owns.js";
 
@@ -44,8 +44,6 @@ router.put("/accountStatus/:accountId", auth(), owns, async (req, res)=>{
         const message = errorHandler(error);
         res.json({error:message})
     }
-
-
 })
 
 router.delete("/accountDel/:accountId", auth(), owns, async (req,res)=>{
@@ -59,6 +57,34 @@ router.delete("/accountDel/:accountId", auth(), owns, async (req,res)=>{
     } catch (error) {
         const message = errorHandler(error);
         res.json({error:message})
+    }
+})
+
+router.put('/accountDeposit/:accountId', async (req,res)=>{
+    const accountId = req.params.accountId;
+    const amount = req.body.amount
+
+
+    try {
+        const user = await deposit(accountId,amount);
+        res.json(user);
+    } catch (error) {
+        const message = errorHandler(error);
+        res.json({error:message})
+    }
+})
+
+router.put('/accountWithdraw/:accountId', async (req,res)=>{
+    const accountId = req.params.accountId;
+    const amount = req.body.amount
+
+
+    try {
+        const user = await withdraw(accountId,amount);
+        res.json(user);
+    } catch (error) {
+        const message = errorHandler(error);
+        res.status(400).json({error:message})
     }
 })
 

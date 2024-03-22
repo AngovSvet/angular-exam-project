@@ -29,7 +29,7 @@ export class DetailsComponent implements OnInit {
     })
   }
 
-  openWithdrawPopup(): void {
+  openWithdrawPopup(id:string): void {
     const dialogRef = this.dialogDep.open(WithdrawComponent, {
       width: '250px',
       disableClose:false
@@ -37,14 +37,20 @@ export class DetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Amount:', result);
+        this.accService.withdraw(id,result).subscribe({
+          next:(value:any)=>this.router.navigate([`/user/${value.owner}`]),
+          error:(err)=>console.log(err.error)
+          
+          
+          
+        })
       } else {
         console.log('Transaction canceled');
       }
     });
   }
 
-  openDepositPopup(): void {
+  openDepositPopup(id:string): void {
     const dialogRef = this.dialogDep.open(DepositComponent, {
       width: '250px',
       disableClose:false
@@ -52,7 +58,12 @@ export class DetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Amount:', result);
+        this.accService.deposit(id,result).subscribe({
+          next:(value:any)=>this.router.navigate([`/user/${value.owner}`]),
+          
+          
+          
+        })
       } else {
         console.log('Transaction canceled');
       }
