@@ -55,3 +55,20 @@ export const getProfile= async (id)=>{
 
   return user
 }
+
+export const editUser = async (username, email,id)=>{
+  let unique = await User.findOne({email})
+  
+
+  if(unique){
+    throw new Error("User already exist")
+  }
+  try {
+    let user = await User.findByIdAndUpdate(id,{email,username})
+    user = bsonToJson(user)
+  user = removePassword(user);
+  return user;
+  } catch (error) {
+    throw new Error("Something went wrong")
+  }
+}

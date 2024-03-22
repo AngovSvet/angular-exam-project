@@ -1,8 +1,9 @@
 import express from "express";
-import { register, login, getProfile} from "../services/userServices.js";
+import { register, login, getProfile, editUser} from "../services/userServices.js";
 import { errorHandler } from "../utils/error.js";
 import { BlackList } from "../models/BlackList.js";
 import { auth } from "../utils/auth.js";
+import e from "express";
 
 const router = express.Router();
 
@@ -55,6 +56,19 @@ router.get('/user/profile', auth(),async (req,res)=>{
     try {
         const profile = await getProfile(id);
         res.json(profile)
+    } catch (error) {
+        const message = errorHandler(error);
+        res.status(400).json({error:message}) 
+    }
+})
+
+router.post('/user/edit', auth(), async (req,res)=>{
+    const {email, username ,id}= req.body;
+
+
+    try {
+        const user = await editUser(username,email,id);
+        res.json(user);
     } catch (error) {
         const message = errorHandler(error);
         res.status(400).json({error:message}) 

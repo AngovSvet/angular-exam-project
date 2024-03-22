@@ -8,19 +8,39 @@
           <h2 class="username">{{userProfile?.username}}</h2>
           <p class="email">Email: {{userProfile?.email}}</p>
           <div class="buttons">
-            <button class="edit-btn">Edit Profile</button>
+            <button class="edit-btn" (click)="changeView()">Edit Profile</button>
             <button class="delete-btn">Delete Profile</button>
           </div>
         </div>
       </div>
       <div class="edit-profile" *ngIf="wantsToEdit">
         <h2>Edit Profile</h2>
-        <form>
+        <form [formGroup]="editForm" (submit)="onSubmit(editForm)">
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username" value="John Doe">
+          <input type="text" id="username" name="username" formControlName="username">
+          <ng-container *ngIf="editForm.get('username')?.touched">
+            <div class="error-message" *ngIf="editForm.get('username')?.hasError('required')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Username is required.</span>
+            </div>
+            <div class="error-message" *ngIf="editForm.get('username')?.hasError('minlength')">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>Username must be longer than {{editForm.get('username')?.getError('minlength').requiredLength}} characters</span>
+            </div>
+          </ng-container>
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" value="johndoe@example.com">
-          <button type="submit">Save Changes</button>
+          <input type="email" id="email" name="email" formControlName="email" >
+          <ng-container *ngIf="editForm.get('email')?.touched">
+          <div class="error-message" *ngIf="editForm.get('email')?.hasError('required')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Email is required.</span>
+          </div>
+          <div class="error-message" *ngIf="editForm.get('email')?.hasError('emailValidator')">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Invalid email.</span>
+          </div>
+        </ng-container>
+          <button type="submit" [disabled]="editForm.invalid" [style]="{background: editForm.invalid ? 'grey':'#007bff'}">Save Changes</button>
         </form>
       </div>
       <div class="accounts-section">
