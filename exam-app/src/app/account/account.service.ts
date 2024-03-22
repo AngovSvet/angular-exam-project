@@ -13,6 +13,11 @@ export class AccountService {
   }
 
   getAccDetails(id:string){
-    return this.http.post('get/account',{id})
+    return this.http.get(`getAcc/${id}`)
+  }
+
+
+  deleteAcc(id:string){
+    return this.http.delete(`accountDel/${id}`)
   }
 }

@@ -34,6 +34,13 @@ export class ProfileComponent implements OnInit{
     email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
   });
 
+  changeStatus(id:string,status:string){
+    this.userService.changeStatus(id,status).subscribe({
+      next:(value)=>this.router.navigate([`/account/${id}`])
+      
+    })
+  }
+
   
 
   changeView() {

@@ -46,6 +46,17 @@ export class UserService implements OnDestroy{
     return this.http.get('user/logout').pipe(tap(()=>this.user$$.next(undefined)))
   }
 
+  changeStatus(id:string,status:string){
+    if(status==='Active'){
+      status="Inactive"
+    } else {
+      status='Active'
+    }
+    
+
+    return this.http.put(`accountStatus/${id}`,{status:status})
+  }
+
   ngOnDestroy(): void {
     this.subscriber.unsubscribe()
   }

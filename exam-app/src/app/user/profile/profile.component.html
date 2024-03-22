@@ -51,13 +51,13 @@
             <h3 [routerLink]="['/account',account._id]">{{account.accType}}</h3>
             <p>Currency: {{account.currency}}</p>
             <p>Status: {{account.status}}</p>
-            <button class="status-btn">Change Status</button>
-            <p>Balance: {{account.deposit}}</p>
+            <button class="status-btn" (click)="changeStatus(account._id,account.status)">Change Status</button>
+            <p>Balance: {{account.deposit|currency:account.currency}}</p>
           </div>
         </div>
           <div class="no-accounts-div" *ngIf="userProfile?.accounts.length==0">
             <p>You currently have no accounts open.</p>
-            <button routerLink="/createAccount">Open Account</button>
+            <button routerLink="/account/createAccount">Open Account</button>
         </div>
       </div>
       

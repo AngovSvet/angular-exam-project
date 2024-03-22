@@ -22,8 +22,8 @@ router.post("/account/create",auth(),async (req,res)=>{
     }
 })
 
-router.post("/get/account", auth(),owns, async (req, res)=>{
-    const id = req.body.id
+router.get("/getAcc/:accountId", auth(),owns, async (req, res)=>{
+    const id = req.params.accountId
 
     try {
         const accounts = await getAccounts(id);
@@ -34,9 +34,8 @@ router.post("/get/account", auth(),owns, async (req, res)=>{
     }
 })
 
-router.post("/account/:accountId", auth(), owns, async (req, res)=>{
-    const status = req.body
-    // const status = "inactive"
+router.put("/accountStatus/:accountId", auth(), owns, async (req, res)=>{
+    const status = req.body.status
     const id = req.params.accountId
     try {
         const account = await changeStatus(id,status);
@@ -49,10 +48,9 @@ router.post("/account/:accountId", auth(), owns, async (req, res)=>{
 
 })
 
-router.post("/account/:accountId", auth(), owns, async (req,res)=>{
+router.delete("/accountDel/:accountId", auth(), owns, async (req,res)=>{
     const accountId = req.params.accountId;
     // const accountId = '65f5f5bc327773d9cbdd5023'
-
     const userId = req.user.id;
 
     try {
