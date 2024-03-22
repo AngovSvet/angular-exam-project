@@ -1,45 +1,21 @@
-/* Account details section styles */
-.account-details-section {
-  padding: 80px 0;
-  background-color: #f5f5f5; /* Set background color */
-}
-
-.container {
-  max-width: 1200px; /* Set max-width */
-  margin: 0 auto; /* Center container */
-}
-
-.details-wrapper {
-  display: flex;
-  justify-content: space-between; /* Spread elements across container */
-}
-
-.owner-details,
-.account-details-card {
-  flex-basis: calc(50% - 10px); /* Each div takes up half the container width with a gap */
-}
-
-.owner-details {
+.user-info-container,
+.account-details-container {
   background-color: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.account-details-card {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.account-details-card h2 {
+.user-info-container h2,
+.account-details-container h2 {
   margin-bottom: 20px;
 }
 
 .detail {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .label {
@@ -69,9 +45,10 @@
   background-color: #c82333;
 }
 
+
 .profile-picture {
-  width: 150px; /* Adjust width as needed */
-  height: 150px; /* Adjust height as needed */
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
   border-radius: 50%; /* Make the picture round */
-  margin-bottom: 20px; /* Add spacing below the picture */
+  margin-right: 10px; /* Add spacing between picture and owner name */
 }
