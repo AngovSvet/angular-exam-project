@@ -29,7 +29,9 @@
     <span class="label">Account Type:</span>
     <span class="value">{{ account?.accType }}</span>
   </div>
-  <div class="actions">
-    <button class="delete-btn" (click)="onDelete(account?._id)">Delete Account</button>
-  </div>
+</div>
+<div class="actions">
+  <button class="delete-btn" (click)="onDelete(account?._id)">Delete Account</button>
+    <button mat-raised-button class="action-button deposit-button" color="primary" (click)="openDepositPopup()">Deposit</button>
+    <button mat-raised-button class="action-button withdraw-button" color="warn" (click)="openWithdrawPopup()">Withdraw</button>
 </div>

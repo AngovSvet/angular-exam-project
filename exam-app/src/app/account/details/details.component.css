@@ -52,3 +52,38 @@
   border-radius: 50%; /* Make the picture round */
   margin-right: 10px; /* Add spacing between picture and owner name */
 }
+.actions {
+  display: flex;
+  margin-top: 20px;
+}
+
+.action-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.deposit-button {
+  margin-right: 5px; /* Adjusted margin */
+  margin-left: 5px;
+}
+
+/* Primary button */
+.deposit-button.mat-raised-button.mat-primary {
+  background-color: #4CAF50; /* Green color */
+  color: #fff; /* White text */
+}
+
+.deposit-button.mat-raised-button.mat-primary:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+/* Warn button */
+.withdraw-button.mat-raised-button.mat-warn {
+  background-color: #f44336; /* Red color */
+  color: #fff; /* White text */
+}
+
+.withdraw-button.mat-raised-button.mat-warn:hover {
+  background-color: #c82333; /* Darker red color on hover */
+}
