@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:"",pathMatch:"full", redirectTo:"/home"},
   {path:"home", component:HomeComponent},
   {path:"about", component:AboutComponent},
-  {path:"contact",component:ContactComponent},
+  {path:"review",component:ContactComponent},
   {path:"offers",component:OffersComponent},
   {path:"user", loadChildren:()=> import ('./user/user.module').then((m)=>m.UserModule)},
   {path:"account", loadChildren:()=> import ('./account/account.module').then((m)=>m.AccountModule)},

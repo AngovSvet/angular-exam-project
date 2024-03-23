@@ -8,7 +8,7 @@ export class ContactService {
 
   constructor(private http:HttpClient) { }
 
-  sendMessage(name:string,email:string,message:string){
-    return this.http.post("message",{name,email,message})
+  sendReview(name:string,email:string,text:string){
+    return this.http.post("review",{name,email,text})
   }
 }

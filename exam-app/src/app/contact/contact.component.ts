@@ -25,7 +25,7 @@ export class ContactComponent{
 
   onSubmit(form:FormGroup){
     const {name,email,message} = form.value
-    this.messageSurvice.sendMessage(name,email,message).subscribe({
+    this.messageSurvice.sendReview(name,email,message).subscribe({
       next:()=>this.render=true
     })
   }

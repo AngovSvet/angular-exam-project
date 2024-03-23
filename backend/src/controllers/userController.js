@@ -3,8 +3,6 @@ import { register, login, getProfile, editUser} from "../services/userServices.j
 import { errorHandler } from "../utils/error.js";
 import { BlackList } from "../models/BlackList.js";
 import { auth } from "../utils/auth.js";
-import e from "express";
-
 const router = express.Router();
 
 router.post("/user/register", async (req, res) => {

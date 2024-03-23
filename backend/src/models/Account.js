@@ -3,16 +3,20 @@ import mongoose from "mongoose"
 const accountSchema = new mongoose.Schema({
     accType:{
         type:String,
+        required:true
     },
     deposit:{
-        type:Number
+        type:Number,
+        required:true
     },
     currency:{
         type:String,
+        required:true
     },
     status:{
         type:String,
-        match:/\b(?:Active|Inactive)\b/
+        match:/\b(?:Active|Inactive)\b/,
+        required:true
     },
     owner:{
         type: mongoose.Types.ObjectId,
