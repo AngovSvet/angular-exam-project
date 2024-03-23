@@ -3,6 +3,8 @@ import { register, login, getProfile, editUser} from "../services/userServices.j
 import { errorHandler } from "../utils/error.js";
 import { BlackList } from "../models/BlackList.js";
 import { auth } from "../utils/auth.js";
+import { samePer } from "../utils/samePerson.js";
+
 const router = express.Router();
 
 router.post("/user/register", async (req, res) => {
@@ -48,8 +50,8 @@ router.get("/user/logout", async (req,res)=>{
     }
 })
 
-router.get('/user/profile', auth(),async (req,res)=>{
-    const id = req.user.id
+router.get('/user/:userId', auth(),samePer(),async (req,res)=>{
+    const id = req.params.userId
 
     try {
         const profile = await getProfile(id);

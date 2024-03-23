@@ -10,6 +10,7 @@ export const owns = async (req,res,next) =>{
     }
 
     if(account.owner != req.user.id){
+        res.clearCookie('auth-cookie')
         return res.status(401).json({error:"Not owner"})
     }
     

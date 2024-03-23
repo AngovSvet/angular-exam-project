@@ -25,7 +25,7 @@ export function auth(){
             req.logedIn = true;
             next()
         } catch (error) {
-            res.clearCookie("auth");
+            res.clearCookie("auth-cookie");
             res.status(401).send({ error: "Invalid token!" })
         }
     }

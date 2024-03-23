@@ -5,8 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './404/404.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { OffersComponent } from './offers/offers.component';
 import { ErrorsComponent } from './core/error/error.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 const routes: Routes = [
   {path:"privacy", component:WholePrivacyComponent},
@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:"home", component:HomeComponent},
   {path:"about", component:AboutComponent},
   {path:"review",component:ContactComponent},
-  {path:"offers",component:OffersComponent},
+  {path:"calculator",component:CalculatorComponent},
   {path:"user", loadChildren:()=> import ('./user/user.module').then((m)=>m.UserModule)},
   {path:"account", loadChildren:()=> import ('./account/account.module').then((m)=>m.AccountModule)},
   {path:'error',component:ErrorsComponent},

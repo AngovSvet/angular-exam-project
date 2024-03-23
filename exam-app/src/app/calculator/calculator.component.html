@@ -1,0 +1,20 @@
+<div class="savings-goal-calculator">
+    <h2>Savings Goal Calculator</h2>
+    <div class="input-group">
+      <label for="targetAmount">Target Amount:</label>
+      <input type="number" id="targetAmount" [(ngModel)]="targetAmount" />
+    </div>
+    <div class="input-group">
+      <label for="monthlyContribution">Monthly Contribution:</label>
+      <input type="number" id="monthlyContribution" [(ngModel)]="monthlyContribution" />
+    </div>
+    <div class="input-group">
+      <label for="interestRate">Expected Interest Rate (%):</label>
+      <input type="number" id="interestRate" [(ngModel)]="interestRate" />
+    </div>
+    <button (click)="calculate()">Calculate</button>
+    <div *ngIf="estimatedMonths" class="result">
+      <p>Estimated time to reach goal: {{ estimatedMonths }} months</p>
+    </div>
+  </div>
+  

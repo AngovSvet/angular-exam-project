@@ -18,16 +18,17 @@ export class ProfileComponent implements OnInit{
     private activRoute: ActivatedRoute,
     private fb: FormBuilder,
     private router:Router, 
-    private detect:ChangeDetectorRef
   ) {
   }
 
   userProfile: any;
 
   ngOnInit(): void {
-    this.userService.getProfile().subscribe({
-      next: (profile) => (this.userProfile = profile),
-    });
+    this.activRoute.params.subscribe({
+      next:(value)=>this.userService.getProfile(value['userId']).subscribe({
+        next: (profile) => (this.userProfile = profile),
+      })
+    })
   }
   editForm = this.fb.group({
     username: ['', [Validators.minLength(3), Validators.required]],

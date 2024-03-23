@@ -12,11 +12,11 @@ import { ErrorComponent } from './404/404.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AccountModule } from './account/account.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-import { OffersComponent } from './offers/offers.component';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticatingComponent } from './authenticating/authenticating.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { AuthenticatingComponent } from './authenticating/authenticating.compone
     ErrorComponent,
     AboutComponent,
     ContactComponent,
-    OffersComponent,
     AuthenticatingComponent,
+    CalculatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,8 @@ import { AuthenticatingComponent } from './authenticating/authenticating.compone
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

@@ -27,7 +27,6 @@ export class AppInterceptor implements HttpInterceptor {
         this.router.navigate(['/user/login'])
       } else{
         this.errorService.setError(err)
-        
         this.router.navigate(['/error'])
       }
 
