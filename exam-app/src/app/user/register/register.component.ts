@@ -32,12 +32,10 @@ export class RegisterComponent{
     onClick(){
      this.privacy.changeStatus()
      this.isRendered=this.privacy.shouldAppear
-     console.log(this.isRendered);
      
     }
 
     onSubmit(regForm:FormGroup){
-      console.log(regForm.value);
 
       const username = regForm.value.username;
       const email= regForm.value.email;

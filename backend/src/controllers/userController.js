@@ -56,7 +56,7 @@ router.get('/user/profile', auth(),async (req,res)=>{
         res.json(profile)
     } catch (error) {
         const message = errorHandler(error);
-        res.status(400).json({error:message}) 
+        res.status(401).json({error:message}) 
     }
 })
 
@@ -69,7 +69,7 @@ router.post('/user/edit', auth(), async (req,res)=>{
         res.json(user);
     } catch (error) {
         const message = errorHandler(error);
-        res.status(400).json({error:message}) 
+        res.status(401).json({error:message}) 
     }
 })
 

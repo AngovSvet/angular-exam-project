@@ -6,6 +6,7 @@ import { ErrorComponent } from './404/404.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { OffersComponent } from './offers/offers.component';
+import { ErrorsComponent } from './core/error/error.component';
 
 const routes: Routes = [
   {path:"privacy", component:WholePrivacyComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"offers",component:OffersComponent},
   {path:"user", loadChildren:()=> import ('./user/user.module').then((m)=>m.UserModule)},
   {path:"account", loadChildren:()=> import ('./account/account.module').then((m)=>m.AccountModule)},
+  {path:'error',component:ErrorsComponent},
   {path:"**", redirectTo:"/404"},
   {path:"404", component:ErrorComponent}
 ];

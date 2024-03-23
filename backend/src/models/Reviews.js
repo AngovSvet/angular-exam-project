@@ -3,15 +3,15 @@ import mongoose from "mongoose"
 const reviewSchema = new mongoose.Schema({
     text:{
         type: String,
-        required:true
+        required:[true, "Message is required"]
     },
     email:{
         type:String,
-        required:true
+        required:[true, "Email is required"]
     },
     name:{
         type: String,
-        required:true
+        required:[true, "Name is required"]
     }
 },{timestamps:{createdAt:"created_at"}})
 

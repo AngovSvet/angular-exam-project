@@ -18,7 +18,7 @@ router.post("/account/create",auth(),async (req,res)=>{
         res.json(account)
     } catch (error) {
         const message = errorHandler(error);
-        res.json({error:message})
+        res.status(400).json({error:message})
     }
 })
 
@@ -30,7 +30,7 @@ router.get("/getAcc/:accountId", auth(),owns, async (req, res)=>{
         res.json(accounts)
     } catch (error) {
         const message = errorHandler(error);
-        res.json({error:message})
+        res.status(401).json({error:message})
     }
 })
 
@@ -42,7 +42,7 @@ router.put("/accountStatus/:accountId", auth(), owns, async (req, res)=>{
         res.json(account)
     } catch (error) {
         const message = errorHandler(error);
-        res.json({error:message})
+        res.status(401).json({error:message})
     }
 })
 
@@ -56,7 +56,7 @@ router.delete("/accountDel/:accountId", auth(), owns, async (req,res)=>{
         res.json(user);
     } catch (error) {
         const message = errorHandler(error);
-        res.json({error:message})
+        res.status(401).json({error:message})
     }
 })
 
@@ -70,7 +70,7 @@ router.put('/accountDeposit/:accountId', async (req,res)=>{
         res.json(user);
     } catch (error) {
         const message = errorHandler(error);
-        res.json({error:message})
+        res.status(401).json({error:message})
     }
 })
 
@@ -84,7 +84,7 @@ router.put('/accountWithdraw/:accountId', async (req,res)=>{
         res.json(user);
     } catch (error) {
         const message = errorHandler(error);
-        res.status(400).json({error:message})
+        res.status(401).json({error:message})
     }
 })
 

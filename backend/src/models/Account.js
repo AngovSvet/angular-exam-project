@@ -3,20 +3,20 @@ import mongoose from "mongoose"
 const accountSchema = new mongoose.Schema({
     accType:{
         type:String,
-        required:true
+        required:[true, "Account type is required"],
     },
     deposit:{
         type:Number,
-        required:true
+        required:[true, "Deposit is required"]
     },
     currency:{
         type:String,
-        required:true
+        required:[true, "Currency is required"]
     },
     status:{
         type:String,
         match:/\b(?:Active|Inactive)\b/,
-        required:true
+        required:[true, "Status is required"]
     },
     owner:{
         type: mongoose.Types.ObjectId,

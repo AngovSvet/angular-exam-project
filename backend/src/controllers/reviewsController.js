@@ -3,6 +3,7 @@ import express from "express"
 import {  createRev, getAll } from "../services/reviewsServices.js";
 import { auth } from "../utils/auth.js";
 import { getAllOffers } from "../services/offerService.js";
+import { errorHandler } from "../utils/error.js";
 
 
 const router = express.Router();

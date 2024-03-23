@@ -4,13 +4,13 @@ import bCrypt from "bcrypt"
 const userSchema = new mongoose.Schema({
     email:{
         type:String,
-        required:true,
+        required:[true, "Email is required"],
         match:/[a-z0-9]+@[a-z]+\.[a-z]+/
     },
 
     username:{
         type:String,
-        required:true,
+        required:[true, "Username is required"],
         validate: {
             validator: function (v) {
                 return /[a-zA-Z0-9]+/g.test(v);
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 
     password:{
         type:String,
-        required:true,
+        required:[true, "Password is required"],
         minLength:[8,"Longer password is required"],
         validate:{
             validator: function (el){

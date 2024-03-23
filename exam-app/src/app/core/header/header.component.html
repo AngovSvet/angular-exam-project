@@ -6,11 +6,11 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a routerLink="/account/createAccount">Create an account</a>
+            <a routerLink="/account/createAccount" *ngIf="isLogged">Create an account</a>
             <a routerLink="/offers">Special offers</a>
         </div>
     </div>
-    <a routerLink="/review">Review</a>
+    <a routerLink="/review" *ngIf="isLogged">Review</a>
     <div *ngIf="!isLogged">
     <a routerLink="/user/login" class="login">Login</a>
     <a routerLink="/user/register" class="register">Register</a>

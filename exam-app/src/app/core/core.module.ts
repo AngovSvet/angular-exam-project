@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ResponsiveDirective } from './responsive.directive';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorsComponent } from './error/error.component';
 
 
 
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ResponsiveDirective
+    ResponsiveDirective,
+    ErrorsComponent
   ],
   imports: [
     CommonModule,

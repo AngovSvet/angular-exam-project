@@ -6,19 +6,33 @@ import {
   HttpInterceptor,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
+import { ErrorService } from './core/error/error.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private errorService:ErrorService, private router:Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     request = request.clone({
       url: 'http://localhost:3000/'+request.url,
       withCredentials:true
     })
-    return next.handle(request);
+
+    return next.handle(request).pipe(catchError((err)=>{
+
+      if (err.status===401) {
+        this.router.navigate(['/user/login'])
+      } else{
+        this.errorService.setError(err)
+        
+        this.router.navigate(['/error'])
+      }
+
+      return [err]
+    }));
   }
 }
 
