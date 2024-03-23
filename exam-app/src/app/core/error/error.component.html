@@ -6,7 +6,7 @@
         </div>
         <div class="error-actions">
             <a routerLink="/home" class="home-link">Go back to home</a>
-            <button class="refresh-button" routerLink="/user/login">Go to login</button>
+            <button class="refresh-button" routerLink="/user/login" *ngIf="!isLogged">Go to login</button>
         </div>
     </div>
 </div>

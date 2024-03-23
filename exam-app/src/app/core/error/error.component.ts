@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorService } from './error.service';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-error',
@@ -10,7 +11,11 @@ export class ErrorsComponent implements OnInit {
 
   errorMessage:string=''
 
-  constructor(private errorService:ErrorService){}
+  get isLogged(){
+    return this.userService.isLogged
+  }
+
+  constructor(private errorService:ErrorService, private userService:UserService){}
 
   
   ngOnInit(): void {
