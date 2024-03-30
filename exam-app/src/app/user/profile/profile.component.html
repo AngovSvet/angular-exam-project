@@ -5,8 +5,14 @@
           <img src="../../../assets/profile.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
+          <div class="icon-and-text">
+          <i class="fas fa-user"></i>
           <h2 class="username">{{userProfile?.username}}</h2>
+          </div>
+          <div class="icon-and-text">
+          <i class="far fa-envelope"></i>
           <p class="email">Email: {{userProfile?.email}}</p>
+          </div>
           <div class="buttons">
             <button class="edit-btn" (click)="changeView()">Edit Profile</button>
           </div>

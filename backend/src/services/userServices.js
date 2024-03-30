@@ -58,6 +58,12 @@ export const getProfile= async (id)=>{
 
 export const editUser = async (username, email,id)=>{
   let unique = await User.findOne({email})
+
+  if(!username){
+    throw new Error('Username is required')
+  } else if (!email){
+    throw new Error('Email is required')
+  }
   
 
   if(unique){
